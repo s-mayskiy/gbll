@@ -16,6 +16,7 @@ class RouteTest extends TestCase
      */
     public function test()
     {
+
         $response = $this->get('/');
         $response->assertStatus(200);
         $response->assertSee('nav-link active');

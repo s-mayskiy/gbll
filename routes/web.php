@@ -45,6 +45,7 @@ Route::group([
     Route::get('/', 'IndexController@index')->name('index');
     Route::match(['get', 'post'], '/create', 'IndexController@create')->name('create');
     Route::match(['get', 'post'], '/downloadNewsByCategory', 'IndexController@downloadNewsByCategory')->name('downloadNewsByCategory');
+    Route::match(['get', 'post'], 'addImage/{id}', 'IndexController@addImage')->name('addImage');
 });
 
 Auth::routes();

@@ -12,6 +12,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
+                        <h1>Выгружает данные из ФАЙЛА, а не из БД, т.к. в БД пока нет связей между новостями и категориями</h1>
                         <form method="POST" action="{{ route('admin.downloadNewsByCategory') }}">
                             @csrf
 

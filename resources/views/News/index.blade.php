@@ -14,8 +14,8 @@
                     <div class="card-body">
                         <h1>Новости</h1><br>
                         @forelse ($News as $singleNews)
-                            <a href="{{ route('News.show', $singleNews['id'])}}"><h2>{{ $singleNews['title']}}</h2></a><br>
-                            <div class="card-img" style="background-image: url({{$singleNews['image'] ?? asset('default.png')}})"></div>
+                            <a href="{{ route('News.show', $singleNews->id)}}"><h2>{{ $singleNews->title}}</h2></a><br>
+                            <div class="card-img" style="background-image: url({{$singleNews->image ?? asset('default.png')}})"></div>
                             <hr/>
                         @empty
                             Новости отсутствуют!

@@ -19,6 +19,7 @@
                                 <input type="text" name="title" id="newsTitle" class="form-control" value="{{ old('title') }}">
                             </div>
 
+                            @if (false) //До времён, когда в БД будут связи между категорией и новостью
                             <div class="form-group">
                                 <label for="category" class="col-md-6">Категория новости</label>
                                 <select name="category" class="form-control" id="newsCategory">
@@ -29,6 +30,7 @@
                                     @endforelse
                                 </select>
                             </div>
+                            @endif
 
                             <div class="form-group">
                                 <label for="newsText">Содержание новости</label>
