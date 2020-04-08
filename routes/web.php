@@ -43,6 +43,8 @@ Route::group([
     'as' => 'admin.'
 ], function () {
     Route::get('/', 'IndexController@index')->name('index');
-    Route::get('/test1', 'IndexController@test1')->name('test1');
-    Route::get('/test2', 'IndexController@test2')->name('test2');
+    Route::match(['get', 'post'], '/create', 'IndexController@create')->name('create');
+    Route::match(['get', 'post'], '/downloadNewsByCategory', 'IndexController@downloadNewsByCategory')->name('downloadNewsByCategory');
 });
+
+Auth::routes();

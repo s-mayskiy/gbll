@@ -1,0 +1,17 @@
+{
+    "1": {
+        "id": 1,
+        "categoryTxt": "sport",
+        "name": "Спорт"
+    },
+    "2": {
+        "id": 2,
+        "categoryTxt": "politics",
+        "name": "Политика"
+    },
+    "3": {
+        "id": 3,
+        "categoryTxt": "space",
+        "name": "Космос"
+    }
+}
