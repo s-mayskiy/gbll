@@ -7,6 +7,8 @@ use App\News;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Storage;
+use App\Http\Controllers\News\NewsController;
+use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
@@ -29,7 +31,7 @@ class IndexController extends Controller
 
             News::createSingleNews( [
                 'title' => $request->title,
-                'categoryId' => $request->category,
+                //'categoryId' => $request->category,
                 'text' => $request->text,
                 'image' => $url,
                 'premium' => isset($request->premium),
@@ -43,7 +45,7 @@ class IndexController extends Controller
         ]);
     }
 
-    public function downloadNewsByCategory( Request $request){
+    public function downloadNewsByCategory( Request $request ){
 
         if ($request->isMethod("POST")) {
             $categoryAndNews = News::getNewsByCategoryId($request->input('category'));
@@ -56,6 +58,23 @@ class IndexController extends Controller
             "categories" => Categories::getCategories()
         ]);
     }
+
+    public function addImage(Request $request, $id) {
+        if ($request && $request->isMethod("POST")) {
+            $url = null;
+            if ($request->image) {
+                $path = Storage::putFile('public/images', $request->image);
+                $url = Storage::url($path);
+            }
+
+            DB::table('news')->where('id', $id)->update(['image' => $url]);
+
+            $NewsController = new NewsController();
+            return $NewsController->show($id);
+        }
+        return view('admin.addImage')->with('id', $id);
+    }
+
 
 
     public function test2()

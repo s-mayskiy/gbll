@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    @parent | {{ $Category['name'] }}
+    @parent | {{ $Category->name }}
 @endsection
 
 @section('menu')
@@ -14,10 +14,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h1>{{ $Category['name'] }}</h1>
-                        @foreach ($Category['news'] as $singleNews)
-                            <a href="{{ route('News.show', $singleNews['id'])}}">{{ $singleNews['title']}}</a><br>
-                        @endforeach
+                        <h1>{{ $Category->name}}</h1>
+                        <p>Здесь будет перечень новостей по данной категории, когда в БД появятся связи.</p>
                     </div>
                 </div>
             </div>

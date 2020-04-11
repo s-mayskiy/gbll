@@ -14,7 +14,7 @@
                     <div class="card-body">
                         <h1>Категории</h1><br>
                         @foreach ($Categories as $category)
-                            <a href="{{ route('Categories.show', $category["categoryTxt"]) }}">{{ $category["name"] }}</a><br>
+                            <a href="{{ route('Categories.show', $category->categoryTxt) }}">{{ $category->name }}</a><br>
                         @endforeach
                     </div>
                 </div>

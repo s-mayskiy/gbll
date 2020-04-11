@@ -4,6 +4,7 @@ namespace App;
 
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class News
@@ -86,11 +87,17 @@ class News
     }
 
     public static function createSingleNews ($formData) {
+
+        DB::table('news')->insert($formData);
+
+
+        /*
         $data = News::getNews();
         $data[] = $formData;
         $id = array_key_last($data);
         $data[$id]['id'] = $id;
 
         File::put(storage_path() . "/news.json", json_encode($data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_NUMERIC_CHECK));
+        */
     }
 }
