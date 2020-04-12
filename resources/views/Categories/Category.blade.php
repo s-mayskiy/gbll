@@ -15,7 +15,13 @@
                 <div class="card">
                     <div class="card-body">
                         <h1>{{ $Category->name}}</h1>
-                        <p>Здесь будет перечень новостей по данной категории, когда в БД появятся связи.</p>
+                        @forelse($Category->news as $item)
+                            <a href="{{ route('News.show', $item)}}"><h2>{{ $item->title}}</h2></a><br>
+                            <div class="card-img" style="background-image: url({{$item->image ?? asset('default.png')}})"></div>
+                            <hr/>
+                        @empty
+                            <p>Нет новостей по этой категории.</p>
+                        @endforelse
                     </div>
                 </div>
             </div>

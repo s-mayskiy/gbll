@@ -12,20 +12,14 @@ class CategoriesController extends Controller
 {
     public function show($categoryTxt) {
 
-        $category = DB::table('categories')->where('categoryTxt',$categoryTxt)->first();
+        $category = Categories::query()->where(['categoryTxt' => $categoryTxt])->first();
         return view('Categories.Category')->with("Category", $category);
-        /*
-        if (!is_null(Categories::getCategoryIdByCategory($categoryTxt))) {
-            return view('Categories.Category')->with("Category", News::getNewsByCategoryId(Categories::getCategoryIdByCategory($categoryTxt)));
-        } else {
-            return redirect()->route('Categories.index');
-        }
-        */
     }
 
     public function index() {
-        //return view('Categories.index')->with("Categories", Categories::getCategories());
-        $categories = DB::table('categories')->get();
+        $categories = Categories::query()
+            ->paginate(2);
+
         return view('Categories.index')->with("Categories", $categories);
     }
 }

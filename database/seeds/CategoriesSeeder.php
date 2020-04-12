@@ -29,6 +29,10 @@ class CategoriesSeeder extends Seeder
                     'categoryTxt' => 'culture',
                     'name' => 'Культура',
                 ],
+                [
+                    'categoryTxt' => 'science',
+                    'name' => 'Наука',
+                ],
             ]
         );
     }

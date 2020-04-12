@@ -48,14 +48,14 @@ class IndexController extends Controller
     public function downloadNewsByCategory( Request $request ){
 
         if ($request->isMethod("POST")) {
-            $categoryAndNews = News::getNewsByCategoryId($request->input('category'));
-            return response()->json($categoryAndNews['news'])
-                ->header('Content-Disposition', 'attachment; filename = "' . $categoryAndNews['name'] . '.json.txt"')
+            $category = Categories::query()->find($request->category);
+            return response()->json($category->news()->get()->toArray())
+                ->header('Content-Disposition', 'attachment; filename = "' . $category->name . '.json.txt"')
                 ->setEncodingOptions(JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_NUMERIC_CHECK);
         }
 
         return view('admin.downloadNewsByCategory', [
-            "categories" => Categories::getCategories()
+            "categories" => Categories::all()
         ]);
     }
 
@@ -73,12 +73,5 @@ class IndexController extends Controller
             return $NewsController->show($id);
         }
         return view('admin.addImage')->with('id', $id);
-    }
-
-
-
-    public function test2()
-    {
-        return view('admin.test2');
     }
 }
