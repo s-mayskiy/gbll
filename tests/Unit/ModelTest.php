@@ -15,8 +15,8 @@ class ModelTest extends TestCase
      */
     public function test()
     {
-        $this->assertIsArray(News::getNewsFromClass());
+        $this->assertIsObject( new News());
 
-        $this->assertIsArray(Categories::getCategoriesFromClass());
+        $this->assertIsObject( new Categories());
     }
 }

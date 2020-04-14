@@ -48,6 +48,10 @@ class IndexController extends Controller
     public function downloadNewsByCategory( Request $request ){
 
         if ($request->isMethod("POST")) {
+
+            $categories = (new Categories())->getTable();
+            $this->validate($request, ['category' => "required|exists:{$categories},id"], [], Categories::customAttributes());
+
             $category = Categories::query()->find($request->category);
             return response()->json($category->news()->get()->toArray())
                 ->header('Content-Disposition', 'attachment; filename = "' . $category->name . '.json.txt"')

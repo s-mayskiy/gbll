@@ -18,8 +18,8 @@
                         <hr>
                         @forelse ($News as $singleNews)
                             <a href="{{ route('News.show', $singleNews)}}"><h2>{{ $singleNews->title}}</h2></a>
-                            <a href=" {{ route('admin.news.edit', $singleNews) }}"><button type="button" class="btn btn-success">Редактировать</button></a>
-                            <a href="{{ route('admin.news.destroy', $singleNews) }}"><button type="button" class="btn btn-danger">Удалить</button></a>
+                            <a href=" {{ route('admin.news.edit', $singleNews) }}"><button type="button" class="btn btn-success">{{__('Изменить')}}</button></a>
+                            <a href="{{ route('admin.news.destroy', $singleNews) }}"><button type="button" class="btn btn-danger">{{__('Удалить')}}</button></a>
                             <hr/>
                         @empty
                             Новости отсутствуют!

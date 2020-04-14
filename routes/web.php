@@ -46,12 +46,17 @@ Route::group([
     Route::match(['get', 'post'], '/create', 'IndexController@create')->name('create');
     Route::match(['get', 'post'], '/downloadNewsByCategory', 'IndexController@downloadNewsByCategory')->name('downloadNewsByCategory');
     Route::match(['get', 'post'], 'addImage/{id}', 'IndexController@addImage')->name('addImage');
-    Route::get('news/', 'NewsController@index')->name('news.index');
 
-    Route::post('news/update/{news}', 'NewsController@update')->name('news.update');
-    Route::get('news/destroy/{news}', 'NewsController@destroy')->name('news.destroy');
-    Route::get('news/edit/{news}', 'NewsController@edit')->name('news.edit');
-    Route::match(['get', 'post'], 'news/create', 'NewsController@create')->name('news.create');
+    Route::group([
+        'prefix' => 'news/',
+        'as' => 'news.'
+    ], function () {
+        Route::get('/', 'NewsController@index')->name('index');
+        Route::post('/update/{news}', 'NewsController@update')->name('update');
+        Route::get('/destroy/{news}', 'NewsController@destroy')->name('destroy');
+        Route::get('/edit/{news}', 'NewsController@edit')->name('edit');
+        Route::match(['get', 'post'], '/create', 'NewsController@create')->name('create');
+    });
 
     Route::resource('categories', 'CategoriesController');
 

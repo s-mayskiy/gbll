@@ -42,6 +42,8 @@ class CategoriesController extends Controller
     {
         $category = new Categories();
 
+        $this->validate($request, Categories::getValidationRules(), [], Categories::customAttributes());
+
         $category->fill($request->all());
         $category->save();
 
@@ -84,6 +86,8 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, Categories::getValidationRules(), [], Categories::customAttributes());
+
         $category = Categories::query()->find($id);
 
         $category->fill($request->all());
