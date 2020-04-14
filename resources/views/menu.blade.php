@@ -13,7 +13,10 @@
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
         <a class="dropdown-item" href="{{route('admin.index')}}">Админка (корень)</a>
-        <a class="dropdown-item" href="{{ route('admin.create') }}">Добавить новость</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="{{ route('admin.news.index') }}">Админка новостей</a>
+        <a class="dropdown-item" href="{{ route('admin.categories.index') }}">Админка категорий</a>
+        <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="{{ route('admin.downloadNewsByCategory') }}">Скачать новости по категории</a>
     </div>
 </li>

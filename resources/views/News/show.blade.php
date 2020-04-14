@@ -12,12 +12,10 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <p>Здесь будет ссылка на категорию, когда в БД появятася связи</p>
+                        <a href="{{ route('Categories.show', $SingleNews->category()->categoryTxt) }}"><h2>{{ $SingleNews->category()->name }}</a></h2><br>
                         <h2>{{ $SingleNews->title }}</h2>
                         <p>{{ $SingleNews->text }}</p>
-                        @if (!$SingleNews->image)
-                            <a href="{{ route('admin.addImage', $SingleNews->id)}}"><h2>Добавить изображение</h2></a><br>
-                        @endif
+
                         <div class="card-img" style="background-image: url({{$SingleNews->image ?? asset('default.png')}})"></div>
                     </div>
                 </div>

@@ -12,8 +12,9 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <p>Корень админки.</p>
-                        <p>Здесь должна быть какая-то информация о состоянии системы.</p>
+                        <h1>Корень админки</h1>
+                        <a href="{{ route('admin.news.index')}}"><h2>Админка новостей</h2></a>
+                        <a href="{{ route('admin.categories.index')}}"><h2>Админка категорий</h2></a>
                     </div>
                 </div>
             </div>

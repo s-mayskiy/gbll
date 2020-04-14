@@ -12,12 +12,10 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h1>Выгружает данные из ФАЙЛА, а не из БД, т.к. в БД пока нет связей между новостями и категориями</h1>
                         <form method="POST" action="{{ route('admin.downloadNewsByCategory') }}">
                             @csrf
-
                             <div class="form-group">
-                                <label for="category" class="col-md-6">Категория новости</label>
+                                <h2><label for="category" class="col-md-6">Категория новости</label></h2>
                                 <select name="category" class="form-control" id="newsCategory">
                                     @forelse($categories as $item)
                                         <option @if ($item['id'] == old('category')) selected @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
