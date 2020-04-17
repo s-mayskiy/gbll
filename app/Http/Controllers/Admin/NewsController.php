@@ -24,6 +24,8 @@ class NewsController extends Controller
 
         if ($request->isMethod('post')) {
 
+            $this->validate($request, News::getValidationRules(), [], News::customAttributes());
+
             $this->createOrUpdate($request);
 
             return redirect()->route('admin.news.index')->with('success', 'Новость успешно создана!');
@@ -45,6 +47,8 @@ class NewsController extends Controller
 
     public function update(News $news, Request $request)
     {
+        $this->validate($request, News::getValidationRules(), [], News::customAttributes());
+
         $this->createOrUpdate($request, $news);
 
         return redirect()->route('admin.news.index')->with('success', 'Новость успешно изменена!');

@@ -21,12 +21,22 @@
                             @endif
                             <div class="form-group">
                                 <label for="categoryTxt" class="col-md-6">Название категорией латиницей (для адресации)</label>
-                                <input type="text" name="categoryTxt" id="newsTitle" class="form-control" value="{{ $Category->categoryTxt ?? old('categoryTxt') }}">
+                                <input type="text" name="categoryTxt" id="newsTitle" class="form-control {{$errors->get('categoryTxt') ? 'is-invalid' : ''}}" value="{{ $Category->categoryTxt ?? old('categoryTxt') }}">
+                                <small id="categoryTxtHelp" class="invalid-feedback">
+                                    @foreach($errors->get('categoryTxt') as $localError)
+                                        {{ $localError }}
+                                    @endforeach
+                                </small>
                             </div>
 
                             <div class="form-group">
                                 <label for="name" class="col-md-6">Название категории кириллицей</label>
-                                <input type="text" name="name" id="name" class="form-control" value="{{ $Category->name ?? old('name') }}">
+                                <input type="text" name="name" id="name" class="form-control {{$errors->get('name') ? 'is-invalid' : ''}}" value="{{ $Category->name ?? old('name') }}">
+                                <small id="nameHelp" class="invalid-feedback">
+                                    @foreach($errors->get('name') as $localError)
+                                        {{ $localError }}
+                                    @endforeach
+                                </small>
                             </div>
 
                             <div class="form-group">

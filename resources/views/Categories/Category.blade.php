@@ -15,7 +15,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h1>{{ $Category->name}}</h1>
-                        @forelse($Category->news as $item)
+                        @forelse($CategoryNews as $item)
                             <a href="{{ route('News.show', $item)}}"><h2>{{ $item->title}}</h2></a><br>
                             <div class="card-img" style="background-image: url({{$item->image ?? asset('default.png')}})"></div>
                             <hr/>

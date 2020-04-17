@@ -14,6 +14,7 @@
                     <div class="card-body">
                         <h1>Категории</h1><br>
                         <a href="{{route('admin.categories.create')}}"><button type="button" class="btn btn-primary btn-lg btn-block">Добавить категорию</button></a>
+                        <hr>
                         @foreach ($Categories as $category)
                             <a href="{{ route('Categories.show', $category->categoryTxt) }}"><h2>{{ $category->name }}</h2></a><br>
                             <a href=" {{ route('admin.categories.edit', $category) }}"><button type="button" class="btn btn-success">Редактировать</button></a>

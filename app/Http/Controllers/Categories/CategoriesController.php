@@ -13,7 +13,9 @@ class CategoriesController extends Controller
     public function show($categoryTxt) {
 
         $category = Categories::query()->where(['categoryTxt' => $categoryTxt])->first();
-        return view('Categories.Category')->with("Category", $category);
+        return view('Categories.Category')->with(["Category" => $category,
+                                                        'CategoryNews' =>$category->news()->get()
+                                                        ]);
     }
 
     public function index() {

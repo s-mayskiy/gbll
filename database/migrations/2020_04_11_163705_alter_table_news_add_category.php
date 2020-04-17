@@ -29,9 +29,13 @@ class AlterTableNewsAddCategory extends Migration
      */
     public function down()
     {
-        Schema::table('news', function (Blueprint $table) {
-            $table->dropForeign(['categoryId']);
-            $table->dropColumn(['categoryId']);
-        });
+        //Пришлось в тестах вручную дропать таблицу, т.к. SQLite не поддерживает дроп ключа и не может выполнить этот метод. В конце тестов лезла следующая ошибка:
+        //SQLite doesn't support dropping foreign keys (you would need to re-create the table).
+        if (Schema::hasTable('news')) {
+            Schema::table('news', function (Blueprint $table) {
+                $table->dropForeign(['categoryId']);
+                $table->dropColumn(['categoryId']);
+            });
+        }
     }
 }

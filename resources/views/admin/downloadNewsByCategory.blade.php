@@ -16,13 +16,18 @@
                             @csrf
                             <div class="form-group">
                                 <h2><label for="category" class="col-md-6">Категория новости</label></h2>
-                                <select name="category" class="form-control" id="newsCategory">
+                                <select name="category" class="form-control {{$errors->get('category') ? 'is-invalid' : ''}}" id="newsCategory">
                                     @forelse($categories as $item)
                                         <option @if ($item['id'] == old('category')) selected @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
                                     @empty
                                         <h2>Нет категории</h2>
                                     @endforelse
                                 </select>
+                                <small id="categoryHelp" class="invalid-feedback">
+                                    @foreach($errors->get('category') as $localError)
+                                        {{ $localError }}
+                                    @endforeach
+                                </small>
                             </div>
 
                             <div class="form-group">
