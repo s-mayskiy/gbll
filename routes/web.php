@@ -40,7 +40,8 @@ Route::group([
 Route::group([
     'prefix' => 'admin',
     'namespace' => 'Admin',
-    'as' => 'admin.'
+    'as' => 'admin.',
+    'middleware' => ['auth', 'isAdmin']
 ], function () {
     Route::get('/', 'IndexController@index')->name('index');
     Route::match(['get', 'post'], '/create', 'IndexController@create')->name('create');
@@ -58,10 +59,23 @@ Route::group([
         Route::match(['get', 'post'], '/create', 'NewsController@create')->name('create');
     });
 
+    Route::group([
+        'prefix' => 'users/',
+        'as' => 'users.'
+    ], function () {
+        Route::get('/', 'UserController@index')->name('index');
+        Route::get('/setAdmin/{user}', 'UserController@setAdmin')->name('setAdmin');
+        Route::get('/unsetAdmin/{user}', 'UserController@unsetAdmin')->name('unsetAdmin');
+        Route::get('/delete/{user}', 'UserController@delete')->name('delete');
+    });
+
+
+
     Route::resource('categories', 'CategoriesController');
 
     Route::get('categories/{categories}/destroy', 'CategoriesController@destroy')->name('categories.destroyOne');
-});
-
+    });
 Auth::routes();
+
+Route::match(['get','post'], '/profile', 'ProfileController@update')->name('editProfile')->middleware('auth');
 

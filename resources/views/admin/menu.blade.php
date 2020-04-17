@@ -11,6 +11,9 @@
     <a class="nav-link {{ request()->routeIs('admin.categories.index')? 'active' : '' }}" href="{{route('admin.categories.index')}}">Админка категорий</a>
 </li>
 <li class="nav-item">
+    <a class="nav-link {{ request()->routeIs('admin.users.index')? 'active' : '' }}" href="{{route('admin.users.index')}}">Пользователи</a>
+</li>
+<li class="nav-item">
     <a class="nav-link {{ request()->routeIs('admin.downloadNewsByCategory')? 'active' : '' }}" href="{{route('admin.downloadNewsByCategory')}}">Скачать новости по категории</a>
 </li>
 <br>

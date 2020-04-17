@@ -7,7 +7,7 @@ use App\News;
 use App\Categories;
 
 
-$factory->define(News::class, function ($faker) {
+$factory->define(News::class, function () {
 
 
     $faker = \Faker\Factory::create('ru_RU');

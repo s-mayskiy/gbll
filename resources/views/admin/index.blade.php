@@ -15,6 +15,7 @@
                         <h1>Корень админки</h1>
                         <a href="{{ route('admin.news.index')}}"><h2>Админка новостей</h2></a>
                         <a href="{{ route('admin.categories.index')}}"><h2>Админка категорий</h2></a>
+                        <a href="{{ route('admin.users.index')}}"><h2>Пользователи</h2></a>
                     </div>
                 </div>
             </div>

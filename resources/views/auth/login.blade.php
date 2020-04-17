@@ -11,7 +11,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header">{{ __('Login') }}
+                    <hr>
+                    <div>Для теста:</div>
+                    <div>Пользователь с администратоскими правами. Логин: admin@admin.ru Пароль: 123</div>
+                    <div>Пользователь с НЕ администратоскими правами. Логин: 1@1.ru Пароль: 123</div>
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
