@@ -12,9 +12,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(CategoriesSeeder::class);
-        //$this->call(NewsSeeder::class);
-        //$this->call(news_categoryId::class);
-        //Заменил сидинг новостей на фабирку
-        factory(App\News::class, 20)->create();
+        $this->call(NewsSeeder::class);
+        $this->call(UserSeeder::class);
+
     }
 }
