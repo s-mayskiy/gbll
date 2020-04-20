@@ -74,8 +74,15 @@ Route::group([
     Route::resource('categories', 'CategoriesController');
 
     Route::get('categories/{categories}/destroy', 'CategoriesController@destroy')->name('categories.destroyOne');
+
+    Route::get('/parse', 'NewsParserController@index')->name('parse');
     });
 Auth::routes();
 
 Route::match(['get','post'], '/profile', 'ProfileController@update')->name('editProfile')->middleware('auth');
 
+Route::get('login/vk', 'LoginController@loginVK')->name('loginVk');
+Route::get('login/vk/response', 'LoginController@responseVK')->name('responseVK');
+
+Route::get('login/GitHub', 'LoginController@loginGitHub')->name('loginGitHub');
+Route::get('login/GitHub/response', 'LoginController@responseGitHub')->name('responseGitHub');

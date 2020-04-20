@@ -37,6 +37,7 @@
                                 </div>
                             </div>
 
+                            @if( $user->password != '')
                             <div class="form-group row">
                                 <label for="oldPassword" class="col-md-4 col-form-label text-md-right">{{ __('Old Password') }}</label>
 
@@ -50,6 +51,7 @@
                                     @enderror
                                 </div>
                             </div>
+                            @endif
 
 
                             <div class="form-group row">

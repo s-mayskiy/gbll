@@ -7,7 +7,7 @@ use App\Categories;
 
 class News extends Model
 {
-    protected $fillable = ['title', 'text', 'premium', 'categoryId'];
+    protected $fillable = ['title', 'text', 'premium', 'categoryId', 'guid', 'externalLink'];
 
     public function category() {
         return $this->belongsTo(Categories::class, 'categoryId')->first();
