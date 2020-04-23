@@ -14,6 +14,9 @@
     <a class="nav-link {{ request()->routeIs('admin.users.index')? 'active' : '' }}" href="{{route('admin.users.index')}}">Пользователи</a>
 </li>
 <li class="nav-item">
+    <a class="nav-link {{ request()->routeIs('admin.parse')? 'active' : '' }}" href="{{route('admin.parse')}}">Загрузить новости</a>
+</li>
+<li class="nav-item">
     <a class="nav-link {{ request()->routeIs('admin.downloadNewsByCategory')? 'active' : '' }}" href="{{route('admin.downloadNewsByCategory')}}">Скачать новости по категории</a>
 </li>
 <br>

@@ -19,7 +19,6 @@
             <ul class="navbar-nav mr-auto">
                 @yield('menu')
             </ul>
-
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
@@ -33,6 +32,9 @@
                         </li>
                     @endif
                 @else
+                    @if ($curUserAavatar)
+                        <div class="card-img navbar-brand" style="width: 50px; height: 50px; background-image: url({{$curUserAavatar}})"></div>
+                    @endif
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>

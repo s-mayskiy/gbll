@@ -76,6 +76,15 @@
                             </div>
                         </div>
                     </form>
+                    <hr>
+                    <div class="row">
+                        <div class="col-6 text-center">
+                            <a class="btn btn-primary" href="{{route('loginVk')}}" role="button">Войти через VK</a>
+                        </div>
+                        <div class="col-6 text-center">
+                            <a class="btn btn-secondary" href="{{route('loginVk')}}" role="button">Войти через GitHub</a>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>

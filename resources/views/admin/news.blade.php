@@ -17,7 +17,10 @@
                         <a href="{{route('admin.news.create')}}"><button type="button" class="btn btn-primary btn-lg btn-block">Добавить новость</button></a>
                         <hr>
                         @forelse ($News as $singleNews)
-                            <a href="{{ route('News.show', $singleNews)}}"><h2>{{ $singleNews->title}}</h2></a>
+                            <div class="row">
+                                <a href="{{ route('News.show', $singleNews)}}" class="col"><h2>{{ $singleNews->title}}</h2></a>
+                                <a href="{{$singleNews->externalLink ?? ''}}" class="col-3"><button type="button" class="btn btn-light" {{$singleNews->externalLink ? '': 'disabled'}}>Смотреть на внешнем сайте</button></a>
+                            </div>
                             <a href=" {{ route('admin.news.edit', $singleNews) }}"><button type="button" class="btn btn-success">{{__('Изменить')}}</button></a>
                             <a href="{{ route('admin.news.destroy', $singleNews) }}"><button type="button" class="btn btn-danger">{{__('Удалить')}}</button></a>
                             <hr/>

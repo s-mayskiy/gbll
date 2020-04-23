@@ -14,8 +14,8 @@ class ProfileController extends Controller
 
         $errors = [];
         if ($request->isMethod('post')) {
-
-            if (Hash::check($request->post('oldPassword'), $user->password)) {
+            $request->flash();
+            if ($user->password == '' || Hash::check($request->post('oldPassword'), $user->password)) {
                 $user->fill([
                     'name' => $request->post('name'),
                     'password' => Hash::make($request->post('password')),
