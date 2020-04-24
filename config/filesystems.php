@@ -63,7 +63,12 @@ return [
             'bucket' => env('AWS_BUCKET'),
             'endpoint' => env('AWS_URL'),
         ],
-
+        'publicLogs' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/logs'),
+            'url' => env('APP_URL').'/logs',
+            'visibility' => 'public',
+        ],
     ],
 
     /*

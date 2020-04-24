@@ -42,7 +42,7 @@
 
                             <div class="form-group">
                                 <label for="newsText">Содержание новости</label>
-                                <textarea name="text" class="form-control {{$errors->get('text') ? 'is-invalid' : ''}}" rows="10" id="newsText">{{ $news->text ?? old('text') }}</textarea>
+                                <textarea id ="textEdit" name="text" class="form-control {{$errors->get('text') ? 'is-invalid' : ''}}" rows="10" id="newsText">{{ $news->text ?? old('text') }}</textarea>
                                 <small id="textHelp" class="invalid-feedback">
                                     @foreach($errors->get('text') as $localError)
                                         {{ $localError }}
@@ -82,6 +82,18 @@
                                 </button>
                             </div>
                         </form>
+                        <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+                        <script>
+                            var options = {
+                                filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+                                filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+                                filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+                                filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+                            };
+                        </script>
+                        <script>
+                            CKEDITOR.replace('textEdit', options);
+                        </script>
                     </div>
                 </div>
             </div>

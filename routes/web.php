@@ -76,6 +76,17 @@ Route::group([
     Route::get('categories/{categories}/destroy', 'CategoriesController@destroy')->name('categories.destroyOne');
 
     Route::get('/parse', 'NewsParserController@index')->name('parse');
+
+    Route::group([
+        'prefix' => 'resources/',
+        'as' => 'resources.'
+    ], function () {
+        Route::get('/', 'ResourcesController@index')->name('index');
+        Route::match(['get','post'],'/create', 'ResourcesController@edit')->name('create');
+        Route::match(['get','post'],'/edit/{resources}', 'ResourcesController@edit')->name('edit');
+        Route::get('/delete/{resources}', 'ResourcesController@delete')->name('delete');
+    });
+
     });
 Auth::routes();
 

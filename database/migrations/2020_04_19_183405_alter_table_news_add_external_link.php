@@ -15,7 +15,7 @@ class AlterTableNewsAddExternalLink extends Migration
     {
         Schema::table('news', function (Blueprint $table) {
             $table->text('externalLink')->nullable();
-            $table->unsignedInteger('guid')->default(0);
+            $table->string('guid');
             });
     }
 
