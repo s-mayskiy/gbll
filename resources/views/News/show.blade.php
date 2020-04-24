@@ -18,7 +18,7 @@
                             <a href="{{$SingleNews->externalLink ?? ''}}" class="col-3"><button type="button" class="btn btn-light" {{$SingleNews->externalLink ? '': 'disabled'}}>Смотреть на внешнем сайте</button></a>
                         </div>
                         <hr>
-                        <p>{{ $SingleNews->text }}</p>
+                        <p>{!! $SingleNews->text !!}</p>
 
                         <div class="card-img" style="background-image: url({{$SingleNews->image ?? asset('default.png')}})"></div>
                     </div>

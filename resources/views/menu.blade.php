@@ -18,8 +18,9 @@
         <a class="dropdown-item" href="{{ route('admin.news.index') }}">Админка новостей</a>
         <a class="dropdown-item" href="{{ route('admin.categories.index') }}">Админка категорий</a>
         <a class="dropdown-item" href="{{ route('admin.users.index') }}">Пользователи</a>
-        <a class="dropdown-item" href="{{ route('admin.parse') }}">Загрузить новости</a>
+        <a class="dropdown-item" href="{{ route('admin.resources.index') }}">Ресурсы</a>
         <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="{{ route('admin.parse') }}">Поставить в очередь задания на выгрузку новостей</a>
         <a class="dropdown-item" href="{{ route('admin.downloadNewsByCategory') }}">Скачать новости по категории</a>
     </div>
 </li>

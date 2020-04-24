@@ -16,7 +16,7 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Categories::query()
-            ->paginate(2);
+            ->paginate(10);
 
         return view('admin.categories')->with('Categories', $categories );
     }

@@ -7,10 +7,24 @@ use Illuminate\Http\Request;
 use Orchestra\Parser\Xml\Facade as XmlParser;
 use App\News;
 use App\Categories;
+use App\Services\XMLParserService;
+use App\Resources;
+use App\Jobs\NewsParsing;
 
 class NewsParserController extends Controller
 {
-    public function index()
+    public function index() {
+        $start = date('c');
+
+        $resources = Resources::query()->get();
+        foreach ($resources as $resource) {
+            NewsParsing::dispatch($resource->URI);
+        }
+
+        return redirect(route('admin.news.index'))->with('success', "Задания успешно добавлены в очередть. Началчи $start, закончили " . date('c'));
+    }
+
+    public function OBSOLETE_index()
     {
         $successNewsCounter = 0;
         $successCategoryCounter = 0;
